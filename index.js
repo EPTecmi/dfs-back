@@ -41,9 +41,14 @@ app.listen(PORT, () => {
   console.log(`Servidor Corriendo en el puerto ${PORT}`)
 })
 
-app.get('/health', (req, res) => {
-  res.json({ok:true, service:'api'})
-})
+app.get('/health', async (req, res) => {
+  try {
+    await pool.query('select 1');
+    return res.json({ ok: true });
+  } catch (err) {
+    return res.status(500).json({ ok: false })
+  }
+});
 
 app.get('/health/db', async (req, res) => {
   try {
