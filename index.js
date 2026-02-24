@@ -38,7 +38,7 @@ app.get('/privado', authMiddleware, (req, res) => {
 
 
 app.listen(PORT, () => {
-  console.log(`Servidor Corriendo en el puerto ${PORT}`)
+  console.log(`Servidor Corriendo en el puerto ${PORT}, y todo funciona bien!!`);
 })
 
 app.get('/health', async (req, res) => {
