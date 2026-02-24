@@ -5,7 +5,6 @@ const repo = new ProductosRepository();
 
 async function getAll(req, res) {
   const productos = await repo.getAll();
-  console.log(productos)
   return res.json(productos)
 }
 
